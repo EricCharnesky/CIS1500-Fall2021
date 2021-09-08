@@ -1,5 +1,6 @@
 package chapter2;
 
+import java.util.Date;
 import java.util.Scanner;
 
 public class Chapter2 {
@@ -72,8 +73,134 @@ public class Chapter2 {
         System.out.println("value:" + (value + 10));
 
         System.out.println("value:" + value);
-        
+
         System.out.println("Simon says \"take a break\"");
+
+        // I think import is easier
+        // java.util.Scanner anotherScanner = new java.util.Scanner(System.in);
+        Date now = new Date();
+        System.out.println("It is currently: " + now.toString());
+
+        System.out.println("Enter a number");
+        int firstNumber = Integer.parseInt(keyboard.nextLine());
+
+        System.out.println("Enter another number");
+        int secondNumber = Integer.parseInt(keyboard.nextLine());
+
+        System.out.println("firstNumber == secondNumber: "
+                + (firstNumber == secondNumber));
+
+        System.out.println("firstNumber != secondNumber: "
+                + (firstNumber != secondNumber));
+
+        System.out.println("firstNumber > secondNumber: "
+                + (firstNumber > secondNumber));
+
+        System.out.println("firstNumber < secondNumber: "
+                + (firstNumber < secondNumber));
+
+        System.out.println("firstNumber >= secondNumber: "
+                + (firstNumber >= secondNumber));
+
+        System.out.println("firstNumber <= secondNumber: "
+                + (firstNumber <= secondNumber));
+
+        System.out.println("Enter a name");
+        String name = keyboard.nextLine();
+
+        System.out.println("Enter another name");
+        String anotherName = keyboard.nextLine();
+
+        // don't use == for Strings
+        System.out.println("name.equals(anotherName): "
+                + (name.equals(anotherName)));
+
+        // ! is the NOT operator - it flips True and False
+        // !True is False
+        // !False is True
+        System.out.println("!name.equals(anotherName): "
+                + (!name.equals(anotherName)));
+
+        System.out.println("name.equalsIgnoreCase(anotherName): "
+                + (name.equalsIgnoreCase(anotherName)));
+
+        System.out.println("Is it raining out? ( yes/no )");
+        String isItRaining = keyboard.nextLine();
+
+        if (isItRaining.equalsIgnoreCase("yes")) {
+            System.out.println("Don't forget your umbrella!");
+        } else { // else is completely optional
+            System.out.println("You should bring your running shoes");
+        }
+
+        System.out.println("Enter your percentage score 0-100");
+        int score = Integer.parseInt(keyboard.nextLine());
+
+        // chain of if/else if/else if.... mutually exclusive
+        // one and only one will run
+        if (score >= 94) {
+            System.out.println("You get an A");
+        } else if (score >= 90) {
+            System.out.println("You get an A-");
+        } else if (score >= 87) {
+            System.out.println("You get a B+");
+        } else if (score >= 84) {
+            System.out.println("You get a B");
+        } else if (score >= 80) {
+            System.out.println("You get a B-");
+        } else if (score >= 77) {
+            System.out.println("You get a C+");
+        } else if (score >= 74) {
+            System.out.println("You get a C");
+        } else if (score >= 70) {
+            System.out.println("You get a C-");
+        } else if (score >= 67) {
+            System.out.println("You get a D+");
+        } else if (score >= 64) {
+            System.out.println("You get a D");
+        } else {
+            System.out.println("You get an F");
+        }
+
+        int magicNumber = 42;
+
+        System.out.println("Guess a number 1-100");
+        int numberOfGuesses = 1;
+
+        int guess = Integer.parseInt(keyboard.nextLine());
+
+        // if the expression is true, it runs
+        while (guess != magicNumber) {
+            if (guess < magicNumber) {
+                System.out.println("Too low!");
+                numberOfGuesses += 1;
+                guess = Integer.parseInt(keyboard.nextLine());
+            } else if ( guess > magicNumber ) {
+                System.out.println("Too high!");
+                numberOfGuesses += 1;
+                guess = Integer.parseInt(keyboard.nextLine());
+            }
+        } // go check if the expression is true and run again if it is
+        System.out.println("You guessed it in " 
+                + numberOfGuesses + " guesses!");
+        
+        
+        String again = "y";
+        double totalTestScore = 0;
+        int numberOfTestScores = 0;
+        
+        while ( again.equalsIgnoreCase("y")){
+            System.out.println("Enter a test score");
+            int testScore = Integer.parseInt(keyboard.nextLine());
+            totalTestScore += testScore;
+            numberOfTestScores += 1;
+            System.out.println("Do you have more scores to enter? y/n");
+            again = keyboard.nextLine();
+        }
+        
+        double averageTestScore = totalTestScore / numberOfTestScores;
+        System.out.println("Average score is: " + averageTestScore);
+        
     }
 
 }
