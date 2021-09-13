@@ -175,32 +175,63 @@ public class Chapter2 {
                 System.out.println("Too low!");
                 numberOfGuesses += 1;
                 guess = Integer.parseInt(keyboard.nextLine());
-            } else if ( guess > magicNumber ) {
+            } else if (guess > magicNumber) {
                 System.out.println("Too high!");
                 numberOfGuesses += 1;
                 guess = Integer.parseInt(keyboard.nextLine());
             }
         } // go check if the expression is true and run again if it is
-        System.out.println("You guessed it in " 
+        System.out.println("You guessed it in "
                 + numberOfGuesses + " guesses!");
-        
-        
+
         String again = "y";
         double totalTestScore = 0;
         int numberOfTestScores = 0;
-        
-        while ( again.equalsIgnoreCase("y")){
+        int lowestTestScore = Integer.MAX_VALUE;
+        int highestTestScore = Integer.MIN_VALUE;
+
+        while (again.equalsIgnoreCase("y")) {
             System.out.println("Enter a test score");
             int testScore = Integer.parseInt(keyboard.nextLine());
+
+            if (testScore > highestTestScore) {
+                highestTestScore = testScore;
+            }
+
+            if (testScore < lowestTestScore) {
+                lowestTestScore = testScore;
+            }
+
             totalTestScore += testScore;
             numberOfTestScores += 1;
             System.out.println("Do you have more scores to enter? y/n");
             again = keyboard.nextLine();
         }
-        
+
         double averageTestScore = totalTestScore / numberOfTestScores;
         System.out.println("Average score is: " + averageTestScore);
-        
+        System.out.println("The highest score is: " + highestTestScore);
+        System.out.println("The lowest score is: " + lowestTestScore);
+
+        String rockPaperOrScissors = "";
+        while (!rockPaperOrScissors.equalsIgnoreCase("quit")) {
+
+            System.out.println("Let's play Rock Paper Scissors, "
+                    + "enter Rock Paper Scissors or 'quit' to be all done");
+            rockPaperOrScissors = keyboard.nextLine();
+
+            if (rockPaperOrScissors.equalsIgnoreCase("rock")) {
+                System.out.println("You tie!");
+            } else if (rockPaperOrScissors.equalsIgnoreCase("paper")) {
+                System.out.println("You win!");
+            } else if (rockPaperOrScissors.equalsIgnoreCase("scissors")) {
+                System.out.println("You lose!");
+            } else if ( !rockPaperOrScissors.equalsIgnoreCase("quit")){
+                System.out.println("Please enter Rock, Paper, Scissors or Quit");
+            }
+
+        }
+
     }
 
 }
