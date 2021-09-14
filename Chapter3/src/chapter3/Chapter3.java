@@ -1,5 +1,6 @@
 package chapter3;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Chapter3 {
@@ -62,10 +63,67 @@ public class Chapter3 {
         int onesPlace = magicNumber % 10;
 
         System.out.println("Your number * 9 has a " + tensPlace
-                + "in the tens place, and " + onesPlace
+                + " in the tens place, and " + onesPlace
                 + " in the ones palces");
         
+        int result = onesPlace + tensPlace;
         
+        System.out.println("Your ones place plus tens place equals: " 
+                + result);
+        
+        int countOfGuesses = 0;
+        
+        System.out.println("Guess a number 1 - 100");
+        
+        int guess = Integer.parseInt(keyboard.nextLine());
+        
+        // post fix incriment - adds after using the value
+        System.out.println(countOfGuesses++);
+        
+        // prefix incriment - adds before using the value
+        System.out.println(++countOfGuesses);
+        
+        // negative
+        countOfGuesses = -countOfGuesses;
+        
+        
+        
+        // same as above
+        // countOfGuesses = countOfGuesses + 1;
+        // countOfGuesses += 1;
+        
+        int letterE = 'E';
+        // going from smaller size to larger always works
+        
+        // conversion with casting
+        float anotherNumber = (float)4.2;
+        
+        long someLongNumber = 10_000_000_000l;
+        // this will cause a loss of value
+        int castedLong = (int)someLongNumber;
+        System.out.println(Integer.toString(castedLong) 
+                + Integer.toString(10));
+        
+        
+        Integer fullClassInteger = new Integer(42);
+        fullClassInteger.toString();
+        
+        // Math.ceil rounds up to the nearest whole number
+        System.out.println(Math.ceil(4.2));
+        
+        System.out.println(Math.PI);
+        
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        String piAsACurrentValue = formatter.format(Math.PI);
+        
+        System.out.println(piAsACurrentValue);
+        System.out.println(formatter.format(Math.PI));
+        
+        int remainder = 42 % 7;
+        
+        if ( remainder != 0 ){
+            System.out.println("Add another pizza");
+        }
     }
 
 }
