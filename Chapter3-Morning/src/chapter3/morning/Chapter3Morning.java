@@ -1,5 +1,8 @@
 package chapter3.morning;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Chapter3Morning {
@@ -79,13 +82,34 @@ public class Chapter3Morning {
         // can't change it once it's been assigned
         // MAGIC_NUMBER = 43;
         
-        System.out.println("Guess a number 1-100");
+        
+        System.out.println("How high of a number do you want to guess to?");
+        int maxNumber = Integer.parseInt(keyboard.nextLine());
+        
+        
+        int numberOfGuesses = 1;
+        System.out.println("Guess a number 1-" + maxNumber);
         int guess = Integer.parseInt( keyboard.nextLine() );
         
-        while ( guess != MAGIC_NUMBER ){
+        Random random = new Random();
+        int anotherRandomValue = random.nextInt(maxNumber) + 1;
+        
+        while ( guess != anotherRandomValue ){
+            
+            if ( guess < anotherRandomValue){
+                System.out.println("too low!");
+            }
+            else if ( guess > anotherRandomValue ){
+                System.out.println("too high!");
+            }
+            
             System.out.println("guess again!");
             guess = Integer.parseInt( keyboard.nextLine() );
+            numberOfGuesses++;
         }
+        
+        System.out.println("You guessed it right!");
+        System.out.println("It took you " + numberOfGuesses + " guesses!");
         
         int sum = first + second;
         
@@ -128,6 +152,45 @@ public class Chapter3Morning {
         // PEMDAS
         int ninetyPercentOfPeopleCantSovleThis = 
                 5 + 10 / 5 * 20 - 10; // 35
+        
+        
+        double someWholeNumber = 1;
+        
+        double someFloatNumber = 1.2f;
+        
+        float someOtherFloatNumber = (float)1.2;
+        
+        int someResult = (int)(4.2 / 3.5);
+        double anotherResult = (4.2 / 3.5);
+        
+        System.out.print((char)(capitalE + 1));
+        System.out.print((char)(lowercaseR + 1));
+        System.out.print((char)(lowercaseI + 1));
+        System.out.println((char)(lowercaseC + 1));
+        
+        Integer myIntegerNumber = 42;
+        
+        Math.ceil(4.00000000001);
+        Math.sqrt(100);
+        Math.pow(2, 31);
+        
+        NumberFormat formatter = NumberFormat.getPercentInstance();
+        
+        double somePercentage = .37;
+        System.out.println(formatter.format(somePercentage));
+        System.out.println(somePercentage * 100 + "%");
+        
+        BigDecimal someBigNumber = new BigDecimal("9876543210.123");
+        BigDecimal anotherBigNumber = new BigDecimal("19876543210.123");
+        
+        BigDecimal bigNumberResult = someBigNumber.add(anotherBigNumber);
+        
+        System.out.println(bigNumberResult);
+        
+        
+        int randomNumber = (int)(Math.random() * 23) + 1;
+        
+        
     }
 
 }
