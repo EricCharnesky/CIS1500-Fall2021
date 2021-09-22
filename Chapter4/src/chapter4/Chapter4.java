@@ -165,11 +165,13 @@ public class Chapter4 {
             System.out.println("Enter a score or -1 to stop entering scores");
             oneMoreScore = Integer.parseInt(keyboard.nextLine());
 
-            if (oneMoreScore != -1) {
-                oneMoreTotal += oneMoreScore;
-                numberOfOneMoreScores++;
-                // check for min and max....
+            if (oneMoreScore == -1) {
+                break;
             }
+
+            oneMoreTotal += oneMoreScore;
+            numberOfOneMoreScores++;
+            // check for min and max....
 
         }
 
@@ -201,11 +203,9 @@ public class Chapter4 {
             System.out.println(forNumber);
         }
 
-        
         System.out.println("What size triangle should we print?");
         int triangleSize = Integer.parseInt(keyboard.nextLine());
 
-        
         for (int row = 1; row <= triangleSize; row++) {
             for (int star = 1; star <= row; star++) {
                 System.out.print("*");
@@ -222,14 +222,12 @@ public class Chapter4 {
             }
             System.out.println("");
         }
-        
-        
+
         System.out.println("What height rectangle should we print?");
         int height = Integer.parseInt(keyboard.nextLine());
-        
+
         System.out.println("What width rectangle should we print?");
         int width = Integer.parseInt(keyboard.nextLine());
-        
 
         for (int row = 1; row <= height; row++) {
             for (int star = 1; star <= width; star++) {
@@ -237,49 +235,55 @@ public class Chapter4 {
             }
             System.out.println("");
         }
-        
-        
+
         System.out.println("What size diamond do you want?");
         int diamondWidth = Integer.parseInt(keyboard.nextLine());
-        
+
         // ensuring it's an odd width
-        if ( diamondWidth % 2 == 0 ){
+        if (diamondWidth % 2 == 0) {
             diamondWidth++;
         }
-        
+
         // integer division is on purpose - rounds down
         int numberOfSpaces = diamondWidth / 2;
-        
-        
-        for ( int numberOfStars = 1; 
+
+        for (int numberOfStars = 1;
                 numberOfStars <= diamondWidth;
-                numberOfStars += 2){
-            
-            for( int space = 0; space < numberOfSpaces; space++ ){
+                numberOfStars += 2) {
+
+            for (int space = 0; space < numberOfSpaces; space++) {
                 System.out.print(" ");
             }
-            for( int star = 0; star < numberOfStars; star++ ){
+            for (int star = 0; star < numberOfStars; star++) {
                 System.out.print("*");
             }
             System.out.println("");
             numberOfSpaces--;
         }
-        
+
         numberOfSpaces = 1;
-        for( int numberOfStars = diamondWidth - 2;
+        for (int numberOfStars = diamondWidth - 2;
                 numberOfStars >= 1;
-                numberOfStars -= 2){
-            
-            for( int space = 0; space < numberOfSpaces; space++ ){
+                numberOfStars -= 2) {
+
+            for (int space = 0; space < numberOfSpaces; space++) {
                 System.out.print(" ");
             }
-            for( int star = 0; star < numberOfStars; star++ ){
+            for (int star = 0; star < numberOfStars; star++) {
                 System.out.print("*");
             }
             System.out.println("");
             numberOfSpaces++;
         }
         
+        int numbersToPrint = 0;
+        while ( numbersToPrint < 100 ){
+            numbersToPrint++;
+            if ( numbersToPrint % 2 == 0 ){
+                continue; // jump back to the while condition
+            }
+            System.out.println(numbersToPrint);
+        }
 
     }
 
