@@ -12,7 +12,7 @@ public class Chapter4Morning {
 
         // relational operators
         if (usersNumber == 4) {
-
+            
         }
         if (usersNumber != 4) {
 
