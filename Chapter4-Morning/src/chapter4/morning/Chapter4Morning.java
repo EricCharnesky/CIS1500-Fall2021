@@ -7,12 +7,78 @@ public class Chapter4Morning {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
 
+        System.out.println("Enter your name");
+        String name = keyboard.nextLine();
+
+        for (char letter : name.toCharArray()) {
+            if (Character.isUpperCase(letter)) {
+                System.out.println(letter);
+            }
+        }
+
+        for (int number = 1; number < 20; number++) {
+            if (number % 2 == 0) {
+                continue; // means jump back up to the loop header
+            }
+            System.out.println(number);
+        }
+
+        String moreScores = "Y";
+        int totalScores = 0;
+        int lowestScore = Integer.MAX_VALUE;
+        int highestScore = Integer.MIN_VALUE;
+        int numberOfScores = 0;
+
+        while (moreScores.equalsIgnoreCase("y")) {
+
+            System.out.println("Enter a score");
+            int anotherScoreExample = Integer.parseInt(keyboard.nextLine());
+
+            numberOfScores++;
+            //numberOfScores += 1; same as above
+
+            totalScores += anotherScoreExample;
+
+            if (anotherScoreExample > highestScore) {
+                highestScore = anotherScoreExample;
+            }
+            if (anotherScoreExample < lowestScore) {
+                lowestScore = anotherScoreExample;
+            }
+
+            System.out.println("Do you have more scores to enter? y/n");
+            moreScores = keyboard.nextLine();
+        }
+        int anotherScoreExample = 0;
+        while (anotherScoreExample != -1) {
+
+            System.out.println("Enter a score or -1 to be all done");
+            anotherScoreExample = Integer.parseInt(keyboard.nextLine());
+
+            if (anotherScoreExample == -1) {
+                break; // causes an immediate end of the loop
+            }
+
+            numberOfScores++;
+            //numberOfScores += 1; same as above
+
+            totalScores += anotherScoreExample;
+
+            if (anotherScoreExample > highestScore) {
+                highestScore = anotherScoreExample;
+            }
+            if (anotherScoreExample < lowestScore) {
+                lowestScore = anotherScoreExample;
+            }
+
+        }
+
         System.out.println("Enter a number: ");
         int usersNumber = Integer.parseInt(keyboard.nextLine());
 
         // relational operators
         if (usersNumber == 4) {
-            
+
         }
         if (usersNumber != 4) {
 
@@ -202,7 +268,7 @@ public class Chapter4Morning {
                 System.out.println(hour + ":" + minute);
             }
         }
-        
+
         // todo - move me back down
         System.out.println("What size square do you want to print?");
         int squareSize = Integer.parseInt(keyboard.nextLine());
