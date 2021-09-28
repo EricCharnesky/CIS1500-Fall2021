@@ -1,5 +1,6 @@
 package project2.evening.shell;
 
+// got this from here....
 public class Project2EveningShell {
 
     public static int health = 10;
@@ -35,7 +36,7 @@ public class Project2EveningShell {
     }
 
     public static boolean checkIfIsValidCommand(String choice) {
-
+        return false;
     }
 
 }
