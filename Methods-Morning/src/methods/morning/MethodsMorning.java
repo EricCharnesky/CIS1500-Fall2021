@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class MethodsMorning {
     
+    // a little ugly, but don't worry
     public static double firstXIntercept;
     public static double secondXIntercept;
 
