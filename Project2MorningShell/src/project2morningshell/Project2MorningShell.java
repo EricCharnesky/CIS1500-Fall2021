@@ -12,6 +12,7 @@ public class Project2MorningShell {
     public static void main(String[] args) {
 
         String playAgain = "Y";
+        String lettersGussedd = "";
 
         while (playAgain.equalsIgnoreCase("y")) {
 
@@ -20,9 +21,9 @@ public class Project2MorningShell {
                     = askTheUserForANumberInRange("...", 1, 26);
 
             while (isStillPlaying()) {
-                displayTheWordToGuessWithBlanks();
+                displayTheWordToGuessWithBlanks(wordToGuess);
                 displayAllThePreviouslyGuessedLetters();
-                askUserToGuessALetter();
+                lettersGussedd += askUserToGuessALetter();
             }
 
             playAgain = askTheUserIfTheyWantToPlayAgain();
@@ -44,8 +45,8 @@ public class Project2MorningShell {
 
     // this could return the letter if you wanted
     // make sure they don't guess the same letter twice
-    public static void askUserToGuessALetter() {
-
+    public static String askUserToGuessALetter() {
+        return "";
     }
 
     public static boolean isStillPlaying() {
@@ -56,6 +57,7 @@ public class Project2MorningShell {
         return "";
     }
 
+    // from https://github.com/EricCharnesky/CIS1500-Fall2021/blob/main/Methods-Morning/src/methods/morning/MethodsMorning.java
     public static int askTheUserForANumber(String prompt) {
         Scanner keyboard = new Scanner(System.in);
 
@@ -65,6 +67,7 @@ public class Project2MorningShell {
         return number;
     }
 
+    // from https://github.com/EricCharnesky/CIS1500-Fall2021/blob/main/Methods-Morning/src/methods/morning/MethodsMorning.java
     public static int askTheUserForANumberInRange(
             String prompt, int lowerBound, int upperBound) {
 
