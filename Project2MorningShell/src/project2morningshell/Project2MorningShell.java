@@ -12,7 +12,7 @@ public class Project2MorningShell {
     public static void main(String[] args) {
 
         String playAgain = "Y";
-        String lettersGussedd = "";
+        String lettersGuessed = "";
 
         while (playAgain.equalsIgnoreCase("y")) {
 
@@ -21,9 +21,9 @@ public class Project2MorningShell {
                     = askTheUserForANumberInRange("...", 1, 26);
 
             while (isStillPlaying()) {
-                displayTheWordToGuessWithBlanks(wordToGuess);
+                displayTheWordToGuessWithBlanks(wordToGuess, lettersGuessed);
                 displayAllThePreviouslyGuessedLetters();
-                lettersGussedd += askUserToGuessALetter();
+                lettersGuessed += askUserToGuessALetter();
             }
 
             playAgain = askTheUserIfTheyWantToPlayAgain();
@@ -35,7 +35,7 @@ public class Project2MorningShell {
         return "";
     }
 
-    public static void displayTheWordToGuessWithBlanks() {
+    public static void displayTheWordToGuessWithBlanks(String wordToGuess, String lettersGuessed) {
 
     }
 
