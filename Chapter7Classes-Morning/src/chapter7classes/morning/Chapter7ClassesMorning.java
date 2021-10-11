@@ -6,8 +6,21 @@ public class Chapter7ClassesMorning {
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
+        
+        double value = 1;
+        for( int number = 0; number < 1000; number++){
+            value += 1.1;
+            System.out.println(value);
+        }
 
-        BankAccount account = new BankAccount("Eric", "Checking", 123456);
+        BankAccount newAccount = new BankAccount("", "");
+
+        System.out.println("Your new account is number: " + newAccount.getNumber());
+        BankAccount account = new BankAccount("Eric", "Checking");
+        System.out.println("Your new account is number: " + account.getNumber());
+
+        // static methods are called with the class name
+        FunMath.difference(4, 2);
 
         String doMoreThings = "y";
 
@@ -27,16 +40,15 @@ public class Chapter7ClassesMorning {
                 } else {
                     System.out.println("The bank says NO!");
                 }
-            } else{
+            } else {
                 System.out.println("Please enter Deposit or Withdraw");
             }
             System.out.println("Your current balance: " + account.getBalance());
-            
+
             System.out.println("Do you have more transactions? y/n");
             doMoreThings = keyboard.nextLine();
         }
 
-       
         System.out.println("Enter the length for your rectangle");
         int length = Integer.parseInt(keyboard.nextLine());
 

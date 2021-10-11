@@ -2,15 +2,24 @@ package chapter7classes.morning;
 
 public class BankAccount {
 
+    private static int nextAccountNumber = 1;
+    
     private double balance;
     private String owner;
     private String type;
     private int number;
 
-    public BankAccount(String owner, String type, int number) {
+    public BankAccount(String owner, String type) {
         this.owner = owner;
         this.type = type;
-        this.number = number;
+        this.number = nextAccountNumber;
+        nextAccountNumber++;
+        balance = 0;
+    }
+    
+    public static int getNextNumber(){
+       // balance++;  - can't access non static attributes from a static method
+        return nextAccountNumber;
     }
 
     public void setOwner(String owner) {
