@@ -1,21 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package midtermreview;
 
-/**
- *
- * @author EricC
- */
+import java.util.Scanner;
+
 public class MidtermReview {
 
-    /**
-     * @param args the command line arguments
-     */
+    public static int plusMinusMultiply(int first, int second, int third, int fourth){
+        int result = first + second;
+        result -= third;
+        result *= fourth;
+        
+        // return first + second - third * fourth;
+        
+        return result;
+    }
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        String className = "";
+        Scanner keyboard = new Scanner(System.in);
+        
+        while ( !className.equalsIgnoreCase("ALLDONE")){
+            System.out.println("Please enter the name of your class or ALLDONE to stop");
+            className = keyboard.nextLine();
+        }
     }
     
 }
