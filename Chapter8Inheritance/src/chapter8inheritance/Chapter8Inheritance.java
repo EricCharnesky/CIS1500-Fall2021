@@ -49,6 +49,10 @@ public class Chapter8Inheritance {
         
         printProduct(taxableProduct);
         
+        Rectangle rectangle = new Rectangle(2, 4);
+        
+        Square square = new Square(4);
+        
 
     }
 
