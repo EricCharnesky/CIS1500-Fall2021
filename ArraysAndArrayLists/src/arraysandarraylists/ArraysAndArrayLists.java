@@ -107,7 +107,8 @@ public class ArraysAndArrayLists {
         }
         
         ArrayList<ArrayList<Integer>> twoDimensionalArrayList = new ArrayList<>();
-        twoDimensionalArrayList.add( new ArrayList<>() );
+        twoDimensionalArrayList.add( new ArrayList<>() ); // adds row index 0 
+        twoDimensionalArrayList.get(0).add(10); // adds 10 to the arraylist at row 0
         
         
     }
