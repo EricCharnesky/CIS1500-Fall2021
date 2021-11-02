@@ -1,4 +1,4 @@
-package midtermreview;
+package fileioexamples;
 
 import java.util.Random;
 
@@ -42,6 +42,11 @@ public class TalkingStuffedAnimal {
 
     public boolean isBatteryHasPower() {
         return batteryHasPower;
+    }
+    
+    // there are better ways, but we won't worry about that for now
+    public String getStringForFile(){
+        return name + "~" + color + "~" + soundToMake + "~" + batteryHasPower;
     }
 
 }
