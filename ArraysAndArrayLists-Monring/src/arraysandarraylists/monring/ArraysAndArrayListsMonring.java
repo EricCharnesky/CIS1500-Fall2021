@@ -1,10 +1,53 @@
 package arraysandarraylists.monring;
 
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ArraysAndArrayListsMonring {
 
     public static void main(String[] args) {
+
+        // can't use int, double, float, char - have to use the Class version
+        ArrayList<Integer> arrayListNumber = new ArrayList<>();
+        Random random = new Random();
+        for (int number = 0; number < 100; number++) {
+            int randomNumber = random.nextInt(1_000_000) + 1;
+            arrayListNumber.add(randomNumber);
+        }
+
+        for (int value : arrayListNumber) { // read only loop
+            System.out.println(value);
+        }
+
+        // regular loop using index
+        for (int index = 0; index < arrayListNumber.size(); index++) {
+            System.out.println(arrayListNumber.get(index));
+        }
+        
+        // set method insetad of array[index] = value;
+        arrayListNumber.set(0, 42);
+
+        // removes by index
+        arrayListNumber.remove(0);
+
+        Scanner keyboard = new Scanner(System.in);
+
+        ArrayList<String> shoppingList = new ArrayList<>();
+
+        String itemName = "";
+
+        while (!itemName.equalsIgnoreCase("STOP")) {
+            System.out.println("Enter an item for your shopping list or STOP");
+            itemName = keyboard.nextLine();
+            if (!itemName.equalsIgnoreCase("STOP")) {
+                shoppingList.add(itemName);
+            }
+
+        }
+
+        shoppingList.remove("beans");
+
         int[] numbers = new int[10];
         numbers[0] = 1;
         numbers[1] = 1;
@@ -16,7 +59,6 @@ public class ArraysAndArrayListsMonring {
             System.out.println(number);
         }
 
-        Scanner keyboard = new Scanner(System.in);
         System.out.println("How many numbers do you want to enter?");
         int numberOfValues = Integer.parseInt(keyboard.nextLine());
 
@@ -42,15 +84,15 @@ public class ArraysAndArrayListsMonring {
         firstBunchOfNumbers[2] = 3;
         firstBunchOfNumbers[3] = 4;
         firstBunchOfNumbers[4] = 5;
-        
+
         int[] addedToNumbers = addToMyArray(firstBunchOfNumbers);
-        
+
         printArray(firstBunchOfNumbers);
         printArray(addedToNumbers);
 
     }
-    
-    public static void printArray(int[] values){
+
+    public static void printArray(int[] values) {
         for (int number : values) {
             System.out.println(number);
         }
@@ -72,10 +114,10 @@ public class ArraysAndArrayListsMonring {
 
         return largestValue;
     }
-    
-    public static int[] addToMyArray(int[] values){ // does not change the original
+
+    public static int[] addToMyArray(int[] values) { // does not change the original
         int[] newValues = new int[values.length];
-        for ( int index = 0; index < newValues.length; index++){
+        for (int index = 0; index < newValues.length; index++) {
             newValues[index] = values[index] + 10;
         }
         return newValues;
