@@ -1,9 +1,9 @@
-
 package midtermreview.morning;
 
 import java.util.Random;
 
 public class TalkingStuffedAnimal {
+
     private String name;
     private String color;
     private String soundToMake;
@@ -15,22 +15,22 @@ public class TalkingStuffedAnimal {
         this.soundToMake = soundToMake;
         batteryHasPower = true;
     }
-    
-    public String squeeze(){
+
+    public String squeeze() {
         Random random = new Random();
         int number = random.nextInt(10) + 1;
-        
-        if ( number == 1){
+
+        if (number == 1) {
             batteryHasPower = false;
         }
-        
-        if ( batteryHasPower ){
+
+        if (batteryHasPower) {
             return soundToMake;
         }
         return "";
     }
-    
-    public void changeBatter(){
+
+    public void changeBatter() {
         batteryHasPower = true;
     }
 
@@ -45,8 +45,5 @@ public class TalkingStuffedAnimal {
     public boolean isBatteryHasPower() {
         return batteryHasPower;
     }
-    
-    
-    
-    
+
 }
