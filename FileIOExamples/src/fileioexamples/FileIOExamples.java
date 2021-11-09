@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileIOExamples {
@@ -52,6 +53,8 @@ public class FileIOExamples {
         System.out.println("enter the name of a file to read");
         String fileName = keyboard.nextLine();
 
+        ArrayList<TalkingStuffedAnimal> animals = new ArrayList<>();
+
         File fileToRead = new File(fileName);
         if (fileToRead.exists()) {
             // fileToRead.delete();
@@ -59,13 +62,30 @@ public class FileIOExamples {
                 // opens the file
                 Scanner fileReader = new Scanner(fileToRead);
 
+                int lineNumber = 1;
                 // read the file
                 while (fileReader.hasNext()) {
                     String line = fileReader.nextLine();
+
                     String[] parts = line.split("~");
-                    TalkingStuffedAnimal myNewAnimal
-                            = new TalkingStuffedAnimal(parts[0], parts[1], parts[2]);
-                    System.out.println(myNewAnimal.squeeze());
+
+                    TalkingStuffedAnimal myNewAnimal = null;
+                    try {
+                        myNewAnimal
+                                = new TalkingStuffedAnimal(null, parts[1], parts[2]);
+
+                    } catch (IllegalArgumentException ex) {
+                        System.out.println(
+                                String.format("unable to read animal from "
+                                        + "file at line %d, skipping", lineNumber));
+                    }
+                    // easier to just do this in the try block where you know it's not null
+                    if (myNewAnimal != null) {
+                        System.out.println(myNewAnimal.squeeze());
+                        animals.add(myNewAnimal);
+                    }
+                    lineNumber++;
+
                 }
 
                 // close the file
@@ -74,6 +94,7 @@ public class FileIOExamples {
             } catch (FileNotFoundException ex) {
                 System.out.println(ex);
             }
+
         } else {
             System.out.println("There is no file by that name");
         }

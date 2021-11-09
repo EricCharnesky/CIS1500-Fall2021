@@ -12,8 +12,15 @@ public class TalkingStuffedAnimal {
     public TalkingStuffedAnimal(String name, String color, String soundToMake) {
         this.name = name;
         this.color = color;
-        this.soundToMake = soundToMake;
+        setSoundToMake(soundToMake);
         batteryHasPower = true;
+    }
+
+    public void setSoundToMake(String soundToMake) {
+        if (soundToMake.equalsIgnoreCase("")) {
+            throw new IllegalArgumentException("sound can not be empty");
+        }
+        this.soundToMake = soundToMake;
     }
 
     public String squeeze() {
@@ -43,9 +50,9 @@ public class TalkingStuffedAnimal {
     public boolean isBatteryHasPower() {
         return batteryHasPower;
     }
-    
+
     // there are better ways, but we won't worry about that for now
-    public String getStringForFile(){
+    public String getStringForFile() {
         return name + "~" + color + "~" + soundToMake + "~" + batteryHasPower;
     }
 
