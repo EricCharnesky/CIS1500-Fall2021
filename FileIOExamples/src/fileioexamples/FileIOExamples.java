@@ -52,6 +52,9 @@ public class FileIOExamples {
 
         System.out.println("enter the name of a file to read");
         String fileName = keyboard.nextLine();
+        if ( !fileName.contains((".txt"))){
+            fileName += ".txt";
+        }
 
         ArrayList<TalkingStuffedAnimal> animals = new ArrayList<>();
 

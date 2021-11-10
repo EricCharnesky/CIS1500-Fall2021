@@ -17,7 +17,7 @@ public class TalkingStuffedAnimal {
     }
 
     public void setSoundToMake(String soundToMake) {
-        if (soundToMake.equalsIgnoreCase("")) {
+        if (soundToMake == null || soundToMake.equalsIgnoreCase("")) {
             throw new IllegalArgumentException("sound can not be empty");
         }
         this.soundToMake = soundToMake;

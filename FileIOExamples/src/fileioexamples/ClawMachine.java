@@ -16,6 +16,10 @@ public class ClawMachine {
             throw new IllegalArgumentException("Animal can not be null");
         }
         
+        if( animal.isBatteryHasPower() == false ){
+            
+        }
+        
         animals.add(animal);
        
     }
