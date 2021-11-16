@@ -67,3 +67,5 @@ hs_err_pid*
 /FileIOExamples/build/
 /FileInputOutput/nbproject/private/
 /FileInputOutput/build/
+/GUIHelloWorld/nbproject/private/
+/GUIHelloWorld/build/
