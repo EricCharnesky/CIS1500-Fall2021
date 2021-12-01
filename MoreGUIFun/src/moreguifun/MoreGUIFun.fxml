@@ -4,15 +4,15 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="749.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="moreguifun.MoreGUIFunController">
+<AnchorPane id="AnchorPane" prefHeight="544.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moreguifun.MoreGUIFunController">
    <children>
-      <Button fx:id="button" layoutX="203.0" layoutY="40.0" mnemonicParsing="false" onAction="#buttonClick" text="Buy My Coffee Drink" />
-      <Label fx:id="label" layoutX="434.0" layoutY="194.0">
+      <Button fx:id="button" layoutX="203.0" layoutY="40.0" mnemonicParsing="false" onAction="#buyButtonClick" text="Buy My Coffee Drink" />
+      <Label fx:id="label" layoutX="73.0" layoutY="262.0" text="a">
          <font>
             <Font name="Comic Sans MS" size="22.0" />
          </font>
@@ -36,5 +36,6 @@
       <RadioButton fx:id="drinkDecaf" layoutX="48.0" layoutY="167.0" mnemonicParsing="false" onAction="#buttonClick" text="Decaf $.10" toggleGroup="$drink" />
       <RadioButton fx:id="drinkTea" layoutX="48.0" layoutY="210.0" mnemonicParsing="false" onAction="#buttonClick" text="Tea $10" toggleGroup="$drink" />
       <ChoiceBox fx:id="sugarSelect" layoutX="434.0" layoutY="100.0" prefWidth="150.0" />
+      <TextArea fx:id="textArea" layoutX="442.0" layoutY="142.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 
@@ -24,6 +25,8 @@ import javafx.scene.input.MouseEvent;
  * @author EricC
  */
 public class MoreGUIFunController implements Initializable {
+
+    private Drink selectedDrink;
 
     @FXML
     private Button button;
@@ -55,68 +58,76 @@ public class MoreGUIFunController implements Initializable {
     private RadioButton drinkTea;
     @FXML
     private ChoiceBox<String> sugarSelect;
+    @FXML
+    private TextArea textArea;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String[] options = { "no sugar", "1 sugar", "2 sugar" };
+        String[] options = {"no sugar", "1 sugar", "2 sugar"};
         sugarSelect.setItems(
                 FXCollections.observableArrayList(options));
         sugarSelect.getSelectionModel().selectFirst();
         sugarSelect.setOnAction(event -> showReceipt());
+
+        selectedDrink = new Drink("coffee", .1);
+        showReceipt();
     }
 
     @FXML
     private void buttonClick(ActionEvent event) {
         showReceipt();
+        
     }
 
-    private void showReceipt(){
-        String receipt = "";
-        double totalCost = 0;
+    private void showReceipt() {
+
         if (drinkBrewedCoffee.isSelected()) {
-            totalCost += .1;
-            receipt += "Brewed Coffee: $.10";
+            selectedDrink.setName("coffee");
+            selectedDrink.setCost(.1);
         } else if (drinkEspresso.isSelected()) {
-            totalCost += .5;
-            receipt += "Espresso: $.50";
+            selectedDrink.setName("espresso");
+            selectedDrink.setCost(.5);
         } else if (drinkDecaf.isSelected()) {
-            totalCost += .1;
-            receipt += "Decaf Coffee: $.10";
+            selectedDrink.setName("decaf");
+            selectedDrink.setCost(.1);
         } else if (drinkTea.isSelected()) {
-            totalCost += 10;
-            receipt += "Tea: $10";
+            selectedDrink.setName("tea");
+            selectedDrink.setCost(10);
         }
-        
-        if ( creamer2Percent.isSelected()){
-            receipt += "\n  with 2% milk";
-        } else if ( creamerWhole.isSelected()){
-            receipt += "\n  with whole milk";
-        }else if ( creamerSoy.isSelected()){
-            receipt += "\n  with soy milk (+$.50)";
-            totalCost += .5;
-        }else if ( creamerOat.isSelected()){
-            receipt += "\n  with oat milk (+$.50)";
-            totalCost += .5;
-        }else if ( creamerAlmond.isSelected()){
-            receipt += "\n  with almond milk (+$.50)";
-            totalCost += .5;
+
+        if (creamer2Percent.isSelected()) {
+            selectedDrink.setMilk("2% milk");
+            selectedDrink.setMilkCost(0);
+        } else if (creamerWhole.isSelected()) {
+            selectedDrink.setMilk("whole milk");
+            selectedDrink.setMilkCost(0);
+        } else if (creamerSoy.isSelected()) {
+            selectedDrink.setMilk("soy milk");
+            selectedDrink.setMilkCost(.5);
+        } else if (creamerOat.isSelected()) {
+            selectedDrink.setMilk("oat milk");
+            selectedDrink.setMilkCost(.5);
+        } else if (creamerAlmond.isSelected()) {
+            selectedDrink.setMilk("almond milk");
+            selectedDrink.setMilkCost(.5);
         }
-        
-        if ( sugarSelect.getSelectionModel().isSelected(1)){
-            receipt += "\n with 1 sugar";
-        } else if (sugarSelect.getSelectionModel().isSelected(2)){
-            receipt += "\n with 2 sugar";
+
+        if (sugarSelect.getSelectionModel().isSelected(1)) {
+            selectedDrink.setSugar("1 sugar");
+        } else if (sugarSelect.getSelectionModel().isSelected(2)) {
+            selectedDrink.setSugar("2 sugar");
         }
-        
-        double salesTax = .06 * totalCost;
-        receipt += String.format("\nSales Tax: $%.2f", salesTax);
-        receipt += String.format("\nTotal: $%.2f", (salesTax + totalCost));
-        
-        label.setText(receipt);
+
+        label.setText(selectedDrink.getReceipt());
     }
 
-    
+    @FXML
+    private void buyButtonClick(ActionEvent event) {
+        textArea.appendText(selectedDrink.getReceipt());
+        textArea.appendText("\n");
+    }
+
 }
