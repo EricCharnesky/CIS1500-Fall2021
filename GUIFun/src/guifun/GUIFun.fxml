@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="guifun.GUIFunController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guifun.GUIFunController">
    <children>
       <RadioButton fx:id="drinkCoffee" layoutX="54.0" layoutY="66.0" mnemonicParsing="false" onAction="#updateItem" text="Coffee - $2.50">
          <toggleGroup>
@@ -34,5 +33,9 @@
       </Label>
       <Button fx:id="checkoutButton" layoutX="416.0" layoutY="252.0" mnemonicParsing="false" onAction="#checkout" text="Checkout" />
       <TextArea fx:id="textArea" layoutX="382.0" layoutY="34.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="117.0" layoutY="219.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="117.0" layoutY="277.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="54.0" layoutY="252.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="185.0" layoutY="252.0" mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>
