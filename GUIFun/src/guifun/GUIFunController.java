@@ -56,6 +56,14 @@ public class GUIFunController implements Initializable {
     private Button checkoutButton;
     @FXML
     private TextArea textArea;
+    @FXML
+    private Button northButton;
+    @FXML
+    private Button southButton;
+    @FXML
+    private Button westButton;
+    @FXML
+    private Button eastButton;
 
     /**
      * Initializes the controller class.
@@ -96,6 +104,12 @@ public class GUIFunController implements Initializable {
         } else{
             // no npc, other options
         }
+        
+        
+        northButton.setVisible(false);
+        eastButton.setVisible(false);
+        southButton.setVisible(false);
+        westButton.setVisible(false);
     }
 
     @FXML
@@ -139,6 +153,10 @@ public class GUIFunController implements Initializable {
     private void checkout(ActionEvent event) {
         textArea.appendText(selectedDrink.getReceipt());
         textArea.appendText("\n");
+        northButton.setVisible(true);
+        eastButton.setVisible(true);
+        southButton.setVisible(true);
+        westButton.setVisible(true);
     }
 
 }
