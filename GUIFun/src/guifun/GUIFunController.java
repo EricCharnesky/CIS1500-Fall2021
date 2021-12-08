@@ -143,12 +143,12 @@ public class GUIFunController implements Initializable {
 
     @FXML
     private void updateItem(ActionEvent event) {
-        updateLable();
+        updateLabel();
 
         checkoutButton.setDisable(false);
     }
 
-    private void updateLable() {
+    private void updateLabel() {
         if (drinkCoffee.isSelected()) {
             selectedDrink.setName("Coffee");
             selectedDrink.setCost(2.5);
