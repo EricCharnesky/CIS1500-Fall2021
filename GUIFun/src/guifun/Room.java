@@ -1,19 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package guifun;
 
-/**
- *
- * @author EricC
- */
+import java.util.Random;
+
 public class Room {
+
     private NPC npc;
-    
-    public Room(){
-        npc = null;
+    private int gold;
+    private boolean blocked;
+
+    public Room() {
+
+        Random random = new Random();
+
+        if (random.nextInt(2) == 1) {
+            npc = null;
+        } else {
+            npc = new NPC();
+        }
+
+        gold = random.nextInt(100) + 1;
+
+        // more random values to check if true or not
+        blocked = false;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public boolean isBlocked() {
+        return blocked;
     }
 
     public NPC getNpc() {
@@ -23,6 +43,5 @@ public class Room {
     public void setNpc(NPC npc) {
         this.npc = npc;
     }
-    
-    
+
 }
