@@ -27,7 +27,6 @@ public class GUIFunController implements Initializable {
     private Drink selectedDrink;
     private Room[][] map;
     private ArrayList<ArrayList<Room>> mapArrayList;
-    
 
     @FXML
     private RadioButton drinkCoffee;
@@ -65,51 +64,81 @@ public class GUIFunController implements Initializable {
     @FXML
     private Button eastButton;
 
+    private int currentRow;
+    private int currentColumn;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        currentRow = 0;
+        currentColumn = 0;
+
         selectedDrink = new Drink("Coffee", 2.5);
         checkoutButton.setDisable(true);
-        
-         map = new Room[10][10];
-         mapArrayList = new ArrayList<>();
-         
-         for ( int rowIndex = 0; rowIndex < 10; rowIndex++){
-             // adds an empty row
-             mapArrayList.add(new ArrayList<>());
-             
-             // add ten columns to the new row
-             for ( int columnIndex = 0; columnIndex < 10; columnIndex++){
-                 mapArrayList.get(rowIndex).add(new Room());
-             }
-         }
 
+        map = new Room[10][10];
+        mapArrayList = new ArrayList<>();
+
+        for (int rowIndex = 0; rowIndex < 10; rowIndex++) {
+            // adds an empty row
+            mapArrayList.add(new ArrayList<>());
+
+            // add ten columns to the new row
+            for (int columnIndex = 0; columnIndex < 10; columnIndex++) {
+                mapArrayList.get(rowIndex).add(new Room());
+            }
+        }
+
+        // for arrays
+        for (int rowIndex = 0; rowIndex < map.length; rowIndex++) {
+            for (int columnIndex = 0; columnIndex < map[rowIndex].length; columnIndex++) {
+                map[rowIndex][columnIndex] = new Room();
+            }
+        }
+        // one a time
         // row/column
         map[0][0] = new Room();
         map[9][9] = new Room();
-        
+
         // gets the row, sets the item at the column index
         mapArrayList.get(0).set(0, new Room());
         mapArrayList.get(9).set(9, new Room());
-        
-        mapArrayList.get(0).get(0).setNpc( new NPC() );
-        
+
+        mapArrayList.get(0).get(0).setNpc(new NPC());
+        map[0][0].setNpc(new NPC());
+
         NPC currentRoomNPC = mapArrayList.get(0).get(0).getNpc();
-        
+
         // check if the NPC actually exists
-        if ( currentRoomNPC != null ){
+        if (currentRoomNPC != null) {
             // do something here with fighting or running
-        } else{
+        } else {
             // no npc, other options
         }
-        
-        
+
         northButton.setVisible(false);
         eastButton.setVisible(false);
         southButton.setVisible(false);
         westButton.setVisible(false);
+        enableNavigationButtons();
+    }
+
+    private void enableNavigationButtons() {
+
+        northButton.setDisable(!(currentRow - 1 >= 0
+                && !map[currentRow - 1][currentColumn].isBlocked()));
+        northButton.setDisable(!(currentRow - 1 >= 0
+                && !mapArrayList.get(currentRow - 1).get(currentColumn).isBlocked()));
+
+        southButton.setDisable(!(currentRow + 1 < map.length
+                && !map[currentRow + 1][currentColumn].isBlocked()));
+        
+        eastButton.setDisable(!(currentColumn+1 < map[currentRow].length
+                && !map[currentRow][currentColumn+1].isBlocked()));
+
     }
 
     @FXML

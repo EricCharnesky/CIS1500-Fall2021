@@ -33,9 +33,9 @@
       </Label>
       <Button fx:id="checkoutButton" layoutX="416.0" layoutY="252.0" mnemonicParsing="false" onAction="#checkout" text="Checkout" />
       <TextArea fx:id="textArea" layoutX="382.0" layoutY="34.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="northButton" layoutX="117.0" layoutY="219.0" mnemonicParsing="false" text="Button" />
-      <Button fx:id="southButton" layoutX="117.0" layoutY="277.0" mnemonicParsing="false" text="Button" />
-      <Button fx:id="westButton" layoutX="54.0" layoutY="252.0" mnemonicParsing="false" text="Button" />
-      <Button fx:id="eastButton" layoutX="185.0" layoutY="252.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="northButton" layoutX="421.0" layoutY="290.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="southButton" layoutX="421.0" layoutY="348.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="westButton" layoutX="358.0" layoutY="323.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="eastButton" layoutX="489.0" layoutY="323.0" mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>
